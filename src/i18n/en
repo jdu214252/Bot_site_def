@@ -1,0 +1,92 @@
+{
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Login / Register",
+    "home_content_text": "is a powerful and reliable tool designed to protect your groups and channels from spam and unwanted content",
+    "bot_start": "Get started with bot",
+    "readMore": "Read More",
+    "about_text": "Defensy Bot offers comprehensive protection and control, including stop word filtering, captcha verification for new members, and a cross-ban system. This bot is built to help you maintain order and security in your community, ensuring a comfortable and safe environment for all members.",
+    "servicesList": {
+      "antispam": {
+        "title": "Antispam",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-shield-alt"
+      },
+      "captcha": {
+        "title": "Captchat",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-ban"
+      },
+      "stopword_filters": {
+        "title": "Stopword filters",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-filter"
+      },
+      "link_filters": {
+        "title": "Link filters",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-link"
+      },
+      "crossban": {
+        "title": "Crossban",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-users-slash"
+      },
+      "antispam_2": {
+        "title": "Antispam",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vel culpa labore tempore aliquid libero! Optio velit assumenda amet! Accusamus optio quam dicta possimus ex quaerat, minima consectetur ad nesciunt",
+        "icon": "fas fa-shield-alt"
+      }
+    },
+    "reviews" : "What Our Users Say",
+    "reviewsList": {
+        "coment_1": {
+            "text": "Defensy Bot has changed the way we manage our groups! A must-have for any admin.",
+            "name": "Alice Johnson",
+            "rating": "5"
+        },
+        "coment_2": {
+            "text": "Excellent tool for maintaining order. Highly recommend it!",
+            "name": "Bob Smith",
+            "rating": "5"
+        },
+        "coment_3": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_4": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_5": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_6": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        }
+    },
+    "read_more": "Read more",
+    "contact_1": "Contact",
+    "fullName_t": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Your Message",
+    "sendMessage": "Send Message",
+    "footer": {
+      "faq": "FAQ",
+      "services": "Services",
+      "aboutMe": "About Me",
+      "contact": "Contact",
+      "rights": "All Rights Reserved"
+    }
+  }
+  

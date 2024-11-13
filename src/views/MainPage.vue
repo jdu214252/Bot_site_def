@@ -1,0 +1,357 @@
+    <template>
+      <div id="app">
+        <header class="header">
+          <div class="con">
+          <img src="@/assets/logo_d.png" alt="">
+          <a href="#home" class="logo">DE<span>Fensy</span></a>
+        </div>     
+          <i class="bx bx-menu" id="menu-icon"  @click="toggleMenu"></i>
+
+          <nav class="navbar" :class="{active: isMenuOpen}">
+            <!-- <router-link to="/">{{$t("home")}}</router-link> -->
+            <a href="#home">{{$t("home")}}</a>
+            <a href="#about">{{$t("about")}}</a>
+            <a href="#services">{{$t("services")}}</a>
+            <a href="#contact">{{ $t("contact") }}</a>
+            <!-- <router-link to="/">{{$t("home")}}</router-link>
+            <router-link to="#about">{{$t("about")}}</router-link>
+            <router-link to="#services">{{$t("services")}}</router-link>
+            <router-link to="#contact">{{ $t("contact") }}</router-link> -->
+            <router-link to="/auth" v-if="!isAuthenticated"> <span>{{ $t("login") }}</span></router-link>
+            <a v-else>{{ userName }}</a>
+
+            <a href=""></a>
+            <div class="custom-dropdown" ref="dropdown">
+              <div class="dropdown-header" @click="toggleDropdown">
+                <div>{{ selectedLanguage }}</div>
+                <span class="arrow" :class="{ 'active': isOpen }"></span>
+              </div>
+            <div class="dropdown-list" v-if="isOpen">
+            <div class="dropdown-item" v-for="option in options" :key="option.value" @click="selectLanguage(option.value)">
+            {{ option.text }}
+          </div>
+        </div>
+      </div>
+
+      <!-- <button @click="toggleTheme">
+    {{ isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+  </button> -->
+          </nav>
+
+
+        </header>
+
+        <section class="home" id="home">
+        <div class="home-content fade-in">
+            <h1>Defensy<span> Bot </span></h1>
+            <h3>{{ $t("home_content_text") }}</h3>
+            <div class="btn-group">
+            <a 
+              v-if="isAuthenticated"
+              href="https://t.me/DeFensy_bot"
+              class="btn"
+              target="_blank" 
+            >
+              {{ $t("bot_start") }}
+            </a>
+            <router-link 
+              v-else
+              :to="{ name: 'Login' }" 
+              class="btn"
+            >
+              {{ $t("bot_start") }}
+            </router-link>
+          </div>
+        </div>
+
+        <div class="home-img fade-in">
+            <!-- <div class="rotating-border"></div>  -->
+            <img src="@/assets/log_pic.jpg" alt="Home Image">
+            <div class="rotating-border"></div> 
+        </div>
+    </section>  
+
+        <section class="about fade-in" id="about">
+          <div class="home-img">
+            <div class="rotating-border"></div> <!-- Граница, которую будем вращать -->
+            <img src="@/assets/logo_d.png" alt="Home Image">
+        </div>
+
+          <div class="about-content">
+            <h2>Defensy <span>Bot</span></h2>
+            <p>{{ $t("about_text") }}</p>
+            <a href="#" class="btn">{{ $t("read_more") }}</a>
+          </div>
+        </section>
+        
+        <section class="scrolling-text fade-in">
+          <div class="scrolling-container">
+            <div class="scrolling-banner">
+              <span v-for="(item, index) in socialMedia" :key="index" class="social-item">
+              <i :class="item.icon" class="social-icon"></i>{{ item.name }}
+              </span>
+            </div>
+          
+            <div class="scrolling-banner">
+              <span v-for="(item, index) in socialMedia" :key="index" class="social-item">
+              <i :class="item.icon" class="social-icon"></i>{{ item.name }}
+              </span>
+            </div>
+
+          </div>
+        </section>
+
+
+        <section class="services"  id="services">
+          <h2 class="heading fade-in">{{ $t("services") }}</h2>
+          <div class="services-container">
+            <div class="service-box" v-for="(service, key) in servicesList" :key="key">
+              <div class="service-info">
+                <i :class=" t(`servicesList.${key}.icon`)"></i>
+                <h4>{{ t(`servicesList.${key}.title`) }}</h4>
+                <h5>{{ t(`servicesList.${key}.price`) }} </h5> 
+                <p>{{ t(`servicesList.${key}.description`) }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scrolling-text fade-in">
+          <div class="scrolling-container">
+            <div class="scrolling-banner">
+              <span v-for="(item, index) in socialMedia" :key="index" class="social-item">
+              <i :class="item.icon" class="social-icon"></i>{{ item.name }}
+              </span>
+            </div>
+          
+            <div class="scrolling-banner">
+              <span v-for="(item, index) in socialMedia" :key="index" class="social-item">
+              <i :class="item.icon" class="social-icon"></i>{{ item.name }}
+              </span>
+            </div>
+
+          </div>
+        </section>
+        
+        <section class="reviews fade-in" id="reviews">
+          <h2 class="heading">{{ $t("reviews") }}</h2>
+          <div class="reviews-container">
+            <div class="review-card" v-for="(review, key) in reviewsList" :key="key">
+              <div class="review-content">
+                <p>{{ t(`reviewsList.${key}.text`) }}</p>
+                <h4>{{ t(`reviewsList.${key}.name`) }}</h4>
+                <span>{{ t(`reviewsList.${key}.rating`) }} ★</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact fade-in" id="contact">
+          <h2 class="heading">De<span>Fensy</span> {{ $t("contact_1") }} </h2>
+          <form @submit.prevent="sendMessage">
+            <div class="input-group">
+              <div class="input-box">
+                <input type="text" placeholder="Full Name" v-model="formData.fullName" required>
+                <input type="email" placeholder="Email" v-model="formData.email" required>
+              </div>
+              <div class="input-box">
+                <input type="number" placeholder="Phone Number" v-model="formData.phone" required>
+                <input type="text" placeholder="Subject" v-model="formData.subject" required>
+              </div>
+            </div>
+            <div class="input-group-2">
+              <textarea cols="30" rows="10" placeholder="Your Message" v-model="formData.message" required></textarea>
+              <input type="submit" value="Send Message" class="btn">
+            </div>
+          </form>
+        </section>
+
+        <footer class="footer fade-in">
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+            <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+          </div>
+          <ul class="list">
+            <li><a href="#">{{$t("footer.faq")}}</a></li>
+            <li><router-link to="#services">{{$t("footer.services")}}</router-link></li>
+            <li><router-link to="#about">{{$t("footer.aboutMe")}}</router-link></li>
+            <li><router-link to="#contact">{{ $t("footer.contact") }}</router-link></li>
+          </ul>
+          <p class="copyright">
+            @ DeFensy | All Rights Reserved
+          </p>
+        </footer>
+      </div>
+    </template>
+
+    <script>
+  import { useI18n } from 'vue-i18n';
+  import { socialMedia } from '@/data/socialMedia.js';
+    export default {
+      data() {
+        return {
+          socialMedia,
+          isMenuOpen: false,
+          // isAuthenticated: false,
+          userName: "",
+          language: 'en',
+          selectedLanguage: 'English',
+          isDarkMode: true,
+          isOpen: false,
+          options: [
+            { value: 'en', text: 'English' },
+            { value: 'ru', text: 'Русский' },
+          ],
+          formData: {
+            fullName: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: '',
+          },
+          
+        };
+      },
+      setup() {
+      const { t } = useI18n();
+      
+      const servicesList = {
+        antispam: t('servicesList.antispam'),
+        captcha: t('servicesList.captcha'),
+        stopword_filters: t('servicesList.stopword_filters'),
+        crossban: t('servicesList.crossban'),
+
+      };
+
+      const reviewsList ={
+        coment_1: t('servicesList.coment_1'),
+        coment_2: t('servicesList.coment_2'),
+        coment_3: t('servicesList.coment_3'),
+        coment_4: t('servicesList.coment_4'),
+        coment_5: t('servicesList.coment_5'),
+        coment_6: t('servicesList.coment_6'),
+      };
+      
+      return { t, servicesList, reviewsList };
+    },
+      methods: {
+        handleScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible) {
+        el.classList.add('visible');
+      }
+    });
+  },
+
+    startInfiniteScroll(scrollingBanner) {
+    // Анимация бесконечного скроллинга
+    const width = scrollingBanner.scrollWidth;
+    scrollingBanner.style.animation = `scrolling-animation ${width / 50}s linear infinite`;
+  },
+    
+        toggleMenu() {
+          this.isMenuOpen = !this.isMenuOpen;
+          const meniIcon = document.querySelector('#menu-icon');
+          const navbar = document.querySelector('.navbar');
+          
+          meniIcon.classList.toggle('bx-x', this.isMenuOpen);
+          navbar.classList.toggle('active', this.isMenuOpen);
+        },
+
+        async fetchUserName(){
+          try{
+            const token = localStorage.getItem("accsess_token")
+            if(token){
+              const response = await fetch("http://127.0.0.1:5000/me", {
+                headers: {Authorization: `Bearer ${token}`}
+              });
+              const data = await response.json();
+              this.userName = data.username
+
+              this.startTokenExpirationTimer();
+            }
+          }catch(error){
+            console.log("Failed to fetch user data", error)
+          }
+        },  
+
+        startTokenExpirationTimer() {
+          setTimeout(() => {
+            // Очистка токена и обновление состояния интерфейса
+            localStorage.removeItem("accsess_token");
+            this.userName = "";
+            this.$forceUpdate();
+          }, 900000); 
+        },
+
+        toggleDropdown() {
+          this.isOpen = !this.isOpen;
+        },
+
+        toggleTheme(){
+          this.isDarkMode = !this.isDarkMode;
+          document.documentElement.setAttribute('data-theme', this.isDarkMode ? 'dark' : 'light');
+        },
+
+        selectLanguage(value) {
+          this.selectedLanguage = this.options.find(option => option.value === value).text;
+          this.language = value;
+          this.changeLanguage();
+          this.isOpen = false;
+        },
+
+        changeLanguage(){
+          this.$i18n.locale = this.language;
+        },
+
+        sendMessage() {
+          alert(`Message sent: ${this.formData.message}`);
+          // Here you would typically handle form submission, e.g., send data to a server
+          this.formData = {
+            fullName: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: '',
+          };
+        },
+
+        handleClickOutside(event) {
+          const dropdown = this.$refs.dropdown;
+          if (dropdown && !dropdown.contains(event.target)) {
+            this.isOpen = false;
+          }
+        },
+      },
+      computed: {
+        isAuthenticated() {
+      return Boolean(localStorage.getItem("accsess_token"));
+    },
+  },
+      mounted() {
+        document.addEventListener('scroll', this.handleScroll);
+        this.handleScroll(); // Для запуска при загрузке страницы
+        document.addEventListener('click', this.handleClickOutside);
+        // this.isAuthenticated = Boolean(localStorage.getItem("accsess_token"));
+        this.fetchUserName(); 
+      },
+      beforeUnmount() {
+        document.removeEventListener('click', this.handleClickOutside);
+        document.removeEventListener('scroll', this.handleScroll);
+
+      },
+    };
+    </script>
+
+    <style >
+    @import url('../assets/styleMain.css');
+    /* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap'); */
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+  </style>

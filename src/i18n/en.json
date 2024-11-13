@@ -1,0 +1,86 @@
+{
+    "home": "Home",
+    "about": "About",
+    "services": "Our solutions",
+    "contact": "Contact",
+    "login": "Authorization",
+    "home_content_text": "is a powerful and reliable tool designed to protect your groups and channels from spam and unwanted content",
+    "bot_start": "Get started with bot",
+    "readMore": "Read More",
+    "about_text": "Defensy Bot offers comprehensive protection and control, including stop word filtering, captcha verification for new members, and a cross-ban system. This bot is built to help you maintain order and security in your community, ensuring a comfortable and safe environment for all members.",
+    "servicesList": {
+      "antispam": {
+        "title": "AntiSpam ",
+        "price": "Free",
+        "description": "This feature prevents unwanted messages in your chat, such as mass mailings, advertising links or suspicious messages. Defensy Bot automatically recognizes and deletes spam, ensuring comfortable communication between group members.",
+        "icon": "fas fa-shield-alt"
+      },
+      "captcha": {
+        "title": "AntiPorno",
+        "price": "Free",
+        "description": "Adult content blocking feature. Defensy Bot scans posts and media files in real time and removes inappropriate content, protecting your group or channel from unwanted material.",
+        "icon": "fas fa-ban"
+      },
+      "stopword_filters": {
+        "title": "DeFensy hider",
+        "price": "Free",
+        "description": "Allows you to hide system notifications in a group or channel. This feature removes messages that a user has joined or left a group/channel to keep the chat clean and free of unnecessary information.",
+        "icon": "fas fa-users-slash"
+      },
+      "crossban": {
+        "title": "Full packages",
+        "price": "Free",
+        "description": "A complete package of all Defensy Bot features. Includes AntiSpam, AntiPorn and Defensy Hider, providing comprehensive protection for your chat room. It is an ideal choice for those who want to maximize the security of their community and make it comfortable for participants.",
+        "icon": "fa-solid fa-gem"
+      }
+    },
+    "reviews" : "What Our Users Say",
+    "reviewsList": {
+        "coment_1": {
+            "text": "Defensy Bot has changed the way we manage our groups! A must-have for any admin.",
+            "name": "Alice Johnson",
+            "rating": "5"
+        },
+        "coment_2": {
+            "text": "Excellent tool for maintaining order. Highly recommend it!",
+            "name": "Bob Smith",
+            "rating": "5"
+        },
+        "coment_3": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_4": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_5": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        },
+        "coment_6": {
+            "text": "The bot is user-friendly and effective. Great experience overall!",
+            "name": "Charlie Brown",
+            "rating": "5"
+        }
+    },
+    "read_more": "Read more",
+    "contact_1": "Contact",
+    "fullName_t": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Your Message",
+    "sendMessage": "Send Message",
+    "footer": {
+      "faq": "FAQ",
+      "services": "Services",
+      "aboutMe": "About Me",
+      "contact": "Contact",
+      "rights": "All Rights Reserved"
+    }
+  }
+  
