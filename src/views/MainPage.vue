@@ -72,12 +72,12 @@
     </section>  
 
         <section class="about fade-in" id="about">
-          <div class="home-img">
+          <div class="home-img  fade-in">
             <div class="rotating-border"></div> <!-- Граница, которую будем вращать -->
             <img src="@/assets/logo_d.png" alt="Home Image">
         </div>
 
-          <div class="about-content">
+          <div class="about-content  fade-in">
             <h2>Defensy <span>Bot</span></h2>
             <p>{{ $t("about_text") }}</p>
             <a href="#" class="btn">{{ $t("read_more") }}</a>
